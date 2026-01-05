@@ -7,8 +7,10 @@
     Title="FlashcardApp">
 
     <ShellContent
-        Title="Home"
+        Title="FlashcardApp"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" 
+        />
+        
 
 </Shell>
