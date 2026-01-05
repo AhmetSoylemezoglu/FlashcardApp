@@ -22,18 +22,20 @@
             
             <Button Grid.Column="0"
                 Text=" ← "
-                HeightRequest="30"/>
+                HeightRequest="50"
+                FontSize="30"/>
 
             <Button Grid.Column="1"
                 Text="placeholder text &#x0a; &#x0a; --------------- &#x0a; &#x0a; placeholder 2 "
-                WidthRequest="200"
-                HeightRequest="300"
+                WidthRequest="300"
+                HeightRequest="400"
                 CornerRadius="15"
                 FontSize="25"/>
             
             <Button Grid.Column="2"
                 Text=" → "
-                HeightRequest="30" />
+                HeightRequest="50" 
+                FontSize="30"/>
             
         </Grid>
         
