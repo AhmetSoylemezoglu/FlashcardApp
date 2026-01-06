@@ -19,15 +19,17 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         
         _dbService = service;
-        Task.Run(async () => await LoadData()) ; //LoadData fonksiyonunun async olabilmesi için böyle çağırmamız lazım.
-        
         
         //max_card = _flashcards.Count-1;
         //CounterLabel.Text = (counter+1) + "/" + (max_card+1);
         // LoadData async olduğundan bunlar çalışmıyor doğru düzgün.
-        
-        
-        UpdateCard();
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await LoadData();
     }
 
     private async Task LoadData() //async yaptık çünkü uygulamamızın database'den çekerken donmasını istemiyoruz.
@@ -72,6 +74,12 @@ public partial class MainPage : ContentPage
         }
     }
 
+
+    private async void OnAddCardClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddCardPage());
+    }
+        
     private void OnCardClicked(object? sender, EventArgs e)
     {
         isShowingFront = !isShowingFront;
