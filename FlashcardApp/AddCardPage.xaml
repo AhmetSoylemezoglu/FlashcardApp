@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashcardApp.AddCardPage">
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+            <Label Text="Yeni Kart Ekle" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="FrontEntry"
+                   Placeholder="Ön Yüz (Örn: Hola)" 
+                   ClearButtonVisibility="WhileEditing"/>
+
+            <Entry x:Name="BackEntry"
+                   Placeholder="Arka Yüz (Örn: Merhaba)" 
+                   ClearButtonVisibility="WhileEditing"/>
+
+            <Button Text="Kaydet"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    Clicked="OnSaveClicked" />
+
+            <Button Text="Geri Dön"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="OnReturnClicked" />
+
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
