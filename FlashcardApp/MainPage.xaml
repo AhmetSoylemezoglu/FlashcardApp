@@ -13,6 +13,10 @@
                Source="dotnet_bot.png"
                BackgroundColor="DarkSlateGray"/>
         
+        <Button Grid.Column="2"
+                Clicked="OnAddCardClicked"
+                Text="Desteye yeni kart ekle"/>
+        
         <Grid 
             ColumnDefinitions="Auto, *, Auto"
             Grid.Row="1"
