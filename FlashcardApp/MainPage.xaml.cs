@@ -7,32 +7,53 @@ public partial class MainPage : ContentPage
     int false_count = 0;
     int correct_count = 0;
     int counter = 0;
-    int max_card = 20;
+    int max_card;
     
     private List<Flashcard> _flashcards = new List<Flashcard>();
     private bool isShowingFront = true;
     
-    //private DatabaseService _veriServis; database kullanmamaya karar verdim projenin yetişmesi için. 
+    private DatabaseService _dbService = new DatabaseService();
     
     public MainPage(DatabaseService service)
     {
         InitializeComponent();
-        LoadData();
-        max_card = _flashcards.Count-1;
-        CounterLabel.Text = (counter+1) + "/" + (max_card+1);
-        UpdateCard();
         
-
-        //_veriServis = service;
+        _dbService = service;
+        Task.Run(async () => await LoadData()) ; //LoadData fonksiyonunun async olabilmesi için böyle çağırmamız lazım.
+        
+        
+        //max_card = _flashcards.Count-1;
+        //CounterLabel.Text = (counter+1) + "/" + (max_card+1);
+        // LoadData async olduğundan bunlar çalışmıyor doğru düzgün.
+        
+        
+        UpdateCard();
     }
 
-    private void LoadData()
+    private async Task LoadData() //async yaptık çünkü uygulamamızın database'den çekerken donmasını istemiyoruz.
     {
-        _flashcards.Add(new Flashcard { Front = "Hola", Back = "Merhaba" });
-        _flashcards.Add(new Flashcard { Front = "Gato", Back = "Kedi" });
-        _flashcards.Add(new Flashcard { Front = "Perro", Back = "Köpek" });
-        _flashcards.Add(new Flashcard { Front = "Libro", Back = "Kitap" });
-        _flashcards.Add(new Flashcard { Front = "Programador", Back = "Yazılımcı" });
+        _flashcards = await _dbService.GetFlashcardsAsync();
+        
+        if (_flashcards.Count == 0) //veritabanı boş olduğundan şuan deneme için böyle yapacaz.
+        {
+            await _dbService.SaveFlashcardAsync(new Flashcard { Front = "Hola", Back = "Merhaba" });
+            await _dbService.SaveFlashcardAsync(new Flashcard { Front = "Gato", Back = "Kedi" });
+            
+            _flashcards = await _dbService.GetFlashcardsAsync();
+        }
+        
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            max_card = _flashcards.Count - 1;
+            CounterLabel.Text = (counter+1) + "/" + (max_card+1);
+            UpdateCard(); 
+        });
+        
+        //_flashcards.Add(new Flashcard { Front = "Hola", Back = "Merhaba" });
+        //_flashcards.Add(new Flashcard { Front = "Gato", Back = "Kedi" });
+        //_flashcards.Add(new Flashcard { Front = "Perro", Back = "Köpek" });
+        //_flashcards.Add(new Flashcard { Front = "Libro", Back = "Kitap" });
+        //_flashcards.Add(new Flashcard { Front = "Programador", Back = "Yazılımcı" });
     }
 
     private void UpdateCard()
