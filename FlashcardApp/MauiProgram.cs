@@ -18,7 +18,8 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-
+        builder.Services.AddSingleton<FlashcardApp.Services.DatabaseService>();
+        builder.Services.AddSingleton<MainPage>();
         return builder.Build();
     }
 }
