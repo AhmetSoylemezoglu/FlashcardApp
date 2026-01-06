@@ -36,5 +36,11 @@ namespace FlashcardApp.Services
                 return await _database.InsertAsync(card); 
             }
         }
+        
+        public async Task<int> DeleteFlashcardAsync(Flashcard card)
+        {
+            await Init();
+            return await _database.DeleteAsync(card);
+        }
     }
 }
