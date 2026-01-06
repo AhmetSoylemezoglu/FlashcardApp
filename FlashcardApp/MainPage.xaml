@@ -20,19 +20,28 @@
             
             VerticalOptions="Center">
             
-            <Button Grid.Column="0"
+            <Button 
+                Grid.Column="0"
+                x:Name="prevButton"
+                Clicked="OnPrevClicked"
                 Text=" ← "
                 HeightRequest="50"
                 FontSize="30"/>
 
-            <Button Grid.Column="1"
+            <Button 
+                Grid.Column="1"
+                x:Name="CardButton"
+                Clicked="OnCardClicked"
                 Text="placeholder text &#x0a; &#x0a; --------------- &#x0a; &#x0a; placeholder 2 "
                 WidthRequest="300"
                 HeightRequest="400"
                 CornerRadius="15"
                 FontSize="25"/>
             
-            <Button Grid.Column="2"
+            <Button 
+                Grid.Column="2"
+                x:Name="nextButton"
+                Clicked="OnNextClicked"
                 Text=" → "
                 HeightRequest="50" 
                 FontSize="30"/>
@@ -46,19 +55,22 @@
 
             <Grid ColumnDefinitions="*, *, *">
                 <Label Grid.Column="0" 
-                       Text="Yanlış: 5" 
+                       x:Name="FalseLabel"
+                       Text="Yanlış: 0" 
                        TextColor="Red" 
                        HorizontalOptions="Center" 
                        FontSize="16" />
 
                 <Label Grid.Column="1" 
+                       x:Name="CounterLabel"
                        Text="12 / 50" 
                        HorizontalOptions="Center" 
                        FontAttributes="Bold" 
                        FontSize="18" />
 
-                <Label Grid.Column="2" 
-                       Text="Doğru: 7" 
+                <Label Grid.Column="2"
+                       x:Name="CorrectLabel"
+                       Text="Doğru: 0" 
                        TextColor="Green" 
                        HorizontalOptions="Center" 
                        FontSize="16" />
@@ -66,6 +78,8 @@
 
             <Grid ColumnDefinitions="*, *, *">
                 <Button Grid.Column="0" 
+                        x:Name="FalseButton"
+                        Clicked="OnFalseClicked"
                         Text="X" 
                         BackgroundColor="Red" 
                         TextColor="White" 
@@ -74,7 +88,9 @@
                         CornerRadius="20" />
                 
 
-                <Button Grid.Column="2" 
+                <Button Grid.Column="2"
+                        x:Name="CorrectButton"
+                        Clicked="OnCorrectClicked"
                         Text="✓" 
                         BackgroundColor="Green" 
                         TextColor="White" 
