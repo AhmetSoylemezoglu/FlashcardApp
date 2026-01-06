@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashcardApp.StartPage">
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="20" VerticalOptions="Center">
+            <Label Text="Flascard App" 
+                   FontSize="50" 
+                   HorizontalOptions="Center" />
+           
+            <Button Text="Başla" 
+                    Clicked="OnStartClicked" 
+                    HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
