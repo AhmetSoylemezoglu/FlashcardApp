@@ -66,10 +66,12 @@ public partial class MainPage : ContentPage
         
         if (isShowingFront)
         {
+            CardButton.BackgroundColor = Color.FromRgb(40 , 110, 150);
             CardButton.Text = currentCard.Front;
         }
         else
         {
+            CardButton.BackgroundColor = Color.FromRgb(60, 150, 40);
             CardButton.Text = currentCard.Back;
         }
     }
