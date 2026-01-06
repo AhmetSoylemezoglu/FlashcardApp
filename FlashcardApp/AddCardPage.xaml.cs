@@ -24,12 +24,20 @@ public partial class AddCardPage : ContentPage
             Front = FrontEntry.Text,
             Back = BackEntry.Text
         };
+        if ((FrontEntry.Text == null) || (BackEntry.Text == null)) //iki entry den biri boş bırakılırsa hata veriyor.
+        {
+            await DisplayAlert("Hata", "Lütfen iki tarafı da doldurun.", "Tamam");
+            return;
+        }
+        else
+        {
+            await _dbService.SaveFlashcardAsync(newCard); //database'e kaydediyor.
 
-        await _dbService.SaveFlashcardAsync(newCard); //database'e kaydediyor.
+            FrontEntry.Text = null; //Değer kaydettikten sonra sıfırlıyoruz entry'leri
+            BackEntry.Text = null;
 
-        FrontEntry.Text = null; //Değer kaydettikten sonra sıfırlıyoruz entry'leri
-        BackEntry.Text = null;
-
+        }
+            
         //await Navigation.PopAsync(); bu da saçma geldi belki daha fazla kaydedecem can sıkıcı olurdu hep geri dönmek zorunda kalsam.
     }
 

@@ -31,12 +31,21 @@ public partial class DeleteCardPage : ContentPage
 
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
-        var selectedCard = CardsDropdown.SelectedItem as Flashcard;
+        if (CardsDropdown.SelectedItem == null) //hiçbir kart seçilmemişse hata veriyor ki program çöküyor yoksa
+        {
+            await DisplayAlert("Hata", "Kart seçilmedi", "Tamam");
+            return;
+        }
+        else
+        {
+            var selectedCard = CardsDropdown.SelectedItem as Flashcard;
         
-        await _dbService.DeleteFlashcardAsync(selectedCard);
+            await _dbService.DeleteFlashcardAsync(selectedCard);
         
-        CardsDropdown.SelectedItem = null;
-        await GetDataDropdown();
+            CardsDropdown.SelectedItem = null;
+            await GetDataDropdown();
+
+        }
     }
 
     private async void OnReturnClicked(object sender, EventArgs e)
