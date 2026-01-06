@@ -17,6 +17,11 @@
                 Clicked="OnAddCardClicked"
                 Text="Desteye yeni kart ekle"/>
         
+        <Button Grid.Column="0"
+                Clicked="OnDeleteCardClicked"
+                Text="Desteden kart sil"/>
+
+        
         <Grid 
             ColumnDefinitions="Auto, *, Auto"
             Grid.Row="1"

@@ -26,8 +26,11 @@ public partial class AddCardPage : ContentPage
         };
 
         await _dbService.SaveFlashcardAsync(newCard); //database'e kaydediyor.
-        
-        await Navigation.PopAsync(); //kayıt işi bitince dön
+
+        FrontEntry.Text = null; //Değer kaydettikten sonra sıfırlıyoruz entry'leri
+        BackEntry.Text = null;
+
+        //await Navigation.PopAsync(); bu da saçma geldi belki daha fazla kaydedecem can sıkıcı olurdu hep geri dönmek zorunda kalsam.
     }
 
     private async void OnReturnClicked(object sender, EventArgs e)

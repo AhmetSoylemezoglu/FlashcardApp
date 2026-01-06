@@ -11,6 +11,10 @@
                    FontAttributes="Bold" 
                    HorizontalOptions="Center" />
 
+            <Picker x:Name="CardsDropdown"
+                    Title="Bir kart seçin..."
+                    ItemDisplayBinding="{Binding Front}"
+                    BackgroundColor="DimGray"/>
             
             <Button Text="Sil"
                     BackgroundColor="Green"

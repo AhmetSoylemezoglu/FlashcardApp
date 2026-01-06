@@ -79,6 +79,11 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new AddCardPage());
     }
+    
+    private async void OnDeleteCardClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new DeleteCardPage());
+    }
         
     private void OnCardClicked(object? sender, EventArgs e)
     {
