@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="FlashcardApp">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-01-10T12:14:27.863869200Z">
+        <DropdownSelection timestamp="2026-01-10T12:20:08.246151600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Ahmed Yusuf\.android\avd\Samsung_Galaxy_S10.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=R58N83S49KP" />
             </handle>
           </Target>
         </DropdownSelection>
