@@ -15,77 +15,84 @@
         
         <Button Grid.Column="2"
                 Clicked="OnAddCardClicked"
-                Text="Desteye yeni kart ekle"/>
+                Text="Ekle"/>
         
         <Button Grid.Column="0"
                 Clicked="OnDeleteCardClicked"
-                Text="Desteden kart sil"/>
+                Text="Sil"/>
 
         
         <Grid 
-            ColumnDefinitions="Auto, *, Auto"
+            ColumnDefinitions="*, Auto, *"
             Grid.Row="1"
             Grid.Column="1"
-            
             VerticalOptions="Center">
-            
+            <!--
             <Button 
                 Grid.Column="0"
                 x:Name="prevButton"
                 Clicked="OnPrevClicked"
+                HorizontalOptions="Center"
                 Text=" ← "
-                HeightRequest="50"
-                FontSize="30"/>
-
+                HeightRequest="50" 
+                WidthRequest="60"
+                FontSize="20"/>
+            -->
             <Button 
                 Grid.Column="1"
                 x:Name="CardButton"
                 Clicked="OnCardClicked"
-                Text="placeholder text &#x0a; &#x0a; --------------- &#x0a; &#x0a; placeholder 2 "
+                Text="placeholder text"
                 WidthRequest="300"
                 HeightRequest="400"
                 CornerRadius="15"
                 FontSize="25"/>
-            
+            <!--
             <Button 
                 Grid.Column="2"
                 x:Name="nextButton"
                 Clicked="OnNextClicked"
+                HorizontalOptions="Center"
                 Text=" → "
-                HeightRequest="50" 
-                FontSize="30"/>
-            
+                HeightRequest="50"
+                WidthRequest="60"
+                FontSize="20"/>
+            -->
         </Grid>
         
         <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="3"
             Spacing="20" 
             Padding="20" 
             VerticalOptions="Center">
-
+        
             <Grid ColumnDefinitions="*, *, *">
+                
+                <!--
                 <Label Grid.Column="0" 
                        x:Name="FalseLabel"
                        Text="Yanlış: 0" 
                        TextColor="Red" 
                        HorizontalOptions="Center" 
                        FontSize="16" />
-
+                -->
                 <Label Grid.Column="1" 
                        x:Name="CounterLabel"
                        Text="12 / 50" 
                        HorizontalOptions="Center" 
                        FontAttributes="Bold" 
                        FontSize="18" />
-
+                <!--
                 <Label Grid.Column="2"
                        x:Name="CorrectLabel"
                        Text="Doğru: 0" 
                        TextColor="Green" 
                        HorizontalOptions="Center" 
                        FontSize="16" />
+                -->
             </Grid>
 
             <Grid ColumnDefinitions="*, *, *">
+                <!--
                 <Button Grid.Column="0" 
                         x:Name="FalseButton"
                         Clicked="OnFalseClicked"
@@ -96,7 +103,7 @@
                         HeightRequest="60" 
                         CornerRadius="20" />
                 
-
+            
                 <Button Grid.Column="2"
                         x:Name="CorrectButton"
                         Clicked="OnCorrectClicked"
@@ -106,6 +113,31 @@
                         WidthRequest="60" 
                         HeightRequest="60" 
                         CornerRadius="20" />
+                -->
+                <Button 
+                    Grid.Column="0"
+                    x:Name="prevButton"
+                    Clicked="OnPrevClicked"
+                    HorizontalOptions="Center"
+                    Padding="0,0,0,10" 
+                    Text=" ◄ "
+                    HeightRequest="100" 
+                    WidthRequest="100"
+                    FontSize="70"
+                    CornerRadius="40"
+                    />
+                    
+                <Button 
+                    Grid.Column="2"
+                    x:Name="nextButton"
+                    Clicked="OnNextClicked"
+                    HorizontalOptions="Center"
+                    Padding="0,0,0,10" 
+                    Text=" ► "
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    FontSize="70"
+                    CornerRadius="40"/>
             </Grid>
 
         </VerticalStackLayout>

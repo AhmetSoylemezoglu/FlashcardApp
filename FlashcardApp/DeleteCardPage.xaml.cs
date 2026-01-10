@@ -40,11 +40,12 @@ public partial class DeleteCardPage : ContentPage
         {
             var selectedCard = CardsDropdown.SelectedItem as Flashcard;
         
+            Console.WriteLine(selectedCard);
+            
             await _dbService.DeleteFlashcardAsync(selectedCard);
         
             CardsDropdown.SelectedItem = null;
             await GetDataDropdown();
-
         }
     }
 

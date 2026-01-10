@@ -115,7 +115,7 @@ public partial class MainPage : ContentPage
         isShowingFront = true;
         UpdateCard();
     }
-    
+    /*
     private void OnFalseClicked(object? sender, EventArgs e)
     {
         false_count++;
@@ -127,6 +127,6 @@ public partial class MainPage : ContentPage
         correct_count++;
         CorrectLabel.Text = "Doğru: " + correct_count;
     }
-
+    */
     
 }
