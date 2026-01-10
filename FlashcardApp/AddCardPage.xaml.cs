@@ -24,7 +24,7 @@ public partial class AddCardPage : ContentPage
             Front = FrontEntry.Text,
             Back = BackEntry.Text
         };
-        if ((FrontEntry.Text == null) || (BackEntry.Text == null)) //iki entry den biri boş bırakılırsa hata veriyor.
+        if ((FrontEntry.Text == null) || (BackEntry.Text == null)) 
         {
             await DisplayAlert("Hata", "Lütfen iki tarafı da doldurun.", "Tamam");
             return;
